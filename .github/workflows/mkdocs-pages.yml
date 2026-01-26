@@ -4,12 +4,14 @@ on:
   pull_request:
     paths:
       - "my-project/**"
+      - "resume/resume.md"
       - ".github/workflows/mkdocs-pages.yml"
   push:
     branches:
       - main
     paths:
       - "my-project/**"
+      - "resume/resume.md"
       - ".github/workflows/mkdocs-pages.yml"
 
 permissions:
@@ -40,6 +42,11 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           python -m pip install -r requirements.txt
+
+      - name: Sync resume into docs
+        working-directory: my-project
+        run: |
+          python tools/sync_resume.py
 
       - name: Build (strict)
         working-directory: my-project
