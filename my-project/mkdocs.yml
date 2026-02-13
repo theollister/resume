@@ -1,0 +1,161 @@
+# Site Information
+site_name: "Mitchell Lesser | Azure Cloud Leader"
+site_description: "Professional resume and portfolio showcasing Azure migration and modernization expertise"
+site_author: "Mitchell Lesser"
+
+# Repository (update with actual repository URL when known)
+# repo_url: https://github.com/<username>/resume
+# repo_name: resume
+
+# Copyright
+copyright: Copyright &copy; 2024 Mitchell Lesser
+
+# Configuration
+docs_dir: docs
+site_dir: site
+strict: true
+
+# Theme Configuration
+theme:
+  name: material
+  
+  # Color Scheme - Azure/Cloud Professional Theme
+  # Using 'blue' for Azure brand alignment (professional, corporate)
+  palette:
+    # Light mode - Clean professional appearance
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: blue          # Azure blue for headers/nav
+      accent: cyan           # Accent for links and highlights
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    
+    # Dark mode - Professional contrast
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: blue          # Consistent Azure blue
+      accent: cyan           # Bright accent for dark mode
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  
+  # Typography
+  font:
+    text: Roboto
+    code: Roboto Mono
+  
+  # Features - Optimized for small resume site
+  features:
+    - navigation.instant        # Fast navigation (SPA-like)
+    - navigation.instant.progress # Loading indicator
+    - navigation.tracking       # URL updates with scroll
+    - navigation.tabs           # Tabs for main sections
+    - navigation.tabs.sticky    # Keep tabs visible
+    - navigation.top            # Back to top button
+    - search.suggest            # Search suggestions
+    - search.highlight          # Highlight search terms
+    - content.code.copy         # Copy code blocks (for technical content)
+    # Note: Removed navigation.sections (not needed for 3-page site)
+    # Note: Removed content.action.edit/view (not needed for resume site)
+  
+  # Logo and Favicon - Cloud/Azure theme
+  icon:
+    logo: material/cloud        # Cloud icon for Azure/cloud professional
+  favicon: images/favicon.png   # Will use Material default if file doesn't exist
+
+# Navigation Structure
+nav:
+  - Home: index.md
+  - Resume: resume.md
+  - Contact: contact.md
+
+# Plugins
+plugins:
+  - search:
+      lang: en
+      separator: '[\s\-,:!=\[\]()"/]+|(?!\b)(?=[A-Z][a-z])|\.(?!\d)|&[lg]t;'
+  
+  # Social cards for professional sharing (LinkedIn, etc.)
+  # Disabled in environments without internet access
+  # Automatically works in CI/CD with internet connectivity
+  # - social:
+  #     cards: true
+  #     cards_layout_options:
+  #       background_color: "#1e3a8a"  # Professional blue
+  #       color: "#ffffff"
+
+# Markdown Extensions
+markdown_extensions:
+  # Python Markdown
+  - abbr                        # Abbreviations
+  - admonition                  # Callout blocks
+  - attr_list                   # Add HTML attributes to elements
+  - def_list                    # Definition lists
+  - footnotes                   # Footnotes
+  - md_in_html                  # Markdown inside HTML
+  - tables                      # Tables support
+  - toc:
+      permalink: true           # Permalink anchors
+      permalink_title: Link to this section
+      toc_depth: 3
+  
+  # PyMdown Extensions
+  - pymdownx.betterem:          # Better emphasis handling
+      smart_enable: all
+  - pymdownx.caret              # Superscript and insert
+  - pymdownx.mark               # Highlighting
+  - pymdownx.tilde              # Subscript and delete
+  - pymdownx.details            # Collapsible admonitions
+  - pymdownx.emoji:             # Emoji support
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - pymdownx.highlight:         # Code highlighting
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite       # Inline code highlighting
+  - pymdownx.keys               # Keyboard keys
+  - pymdownx.smartsymbols       # Smart symbols
+  - pymdownx.snippets:          # Include snippets
+      check_paths: true
+  - pymdownx.superfences:       # Nested code blocks
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:            # Tabbed content
+      alternate_style: true
+  - pymdownx.tasklist:          # Task lists
+      custom_checkbox: true
+
+# Extra Configuration
+extra:
+  # Social Links - Professional networking
+  social:
+    - icon: fontawesome/brands/linkedin
+      link: https://www.linkedin.com/in/mitchelllesser
+      name: Connect on LinkedIn
+    - icon: fontawesome/brands/github
+      link: https://github.com/mitchelllesser
+      name: View GitHub Profile
+    # Uncomment to add email contact:
+    # - icon: fontawesome/solid/envelope
+    #   link: mailto:your.email@example.com
+    #   name: Send Email
+  
+  # Analytics (optional - add when ready)
+  # analytics:
+  #   provider: google
+  #   property: G-XXXXXXXXXX
+  
+  # Site generation info
+  generator: true
+
+# Additional CSS (optional - for custom styling)
+# extra_css:
+#   - stylesheets/extra.css
+
+# Additional JavaScript (optional)
+# extra_javascript:
+#   - javascripts/extra.js
